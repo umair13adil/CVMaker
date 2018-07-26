@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_export"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export As PDF" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_35">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_profile"
+                        android:layout_width="@dimen/margin_80"
+                        android:layout_height="@dimen/margin_80"
+                        android:src="@drawable/placeholder_female"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_10"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txt_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:hint="@string/hint_name"
+                        android:paddingTop="10dp"
+                        android:textAllCaps="true"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txt_user_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:hint="@string/hint_title"
+                        android:imeOptions="actionNext"
+                        android:lines="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txt_user_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="start"
+                        android:hint="@string/hint_summary"
+                        android:imeOptions="actionNext"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:padding="@dimen/margin_5"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

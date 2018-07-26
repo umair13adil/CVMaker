@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">CV Maker App</string>
+    <string name="title_activity_resume_creater">ResumeCreaterActivity</string>
+
+    <string name="hint_name">Your Name</string>
+    <string name="hint_title">Your Title</string>
+    <string name="hint_summary">Your Summary</string>
+    <string name="hint_description">Your Bio</string>
+    <string name="hint_website">Your Website</string>
+    <string name="hint_email">Your Email</string>
+    <string name="hint_phone">Your Phone</string>
+
+    <string name="section_contact">Contact Information</string>
+    <string name="section_basic">Basic Information</string>
+    <string name="section_education">Education</string>
+    <string name="section_experience">Experience</string>
+    <string name="section_skills">Skills</string>
+    <string name="section_interests">Interests</string>
+
+
+    <!--Education Dialog-->
+    <string name="txt_education">Education</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="txt_done">Done</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_institute">Institution</string>
+    <string name="hint_institute">Enter Institution Name</string>
+    <string name="hint_year">XXXX</string>
+    <string name="txt_year">Enter Year</string>
+    <string name="txt_degree">Degree</string>
+    <string name="hint_degree">Enter Degree Title</string>
+
+    <!--PDF-->
+    <string name="gen_pdf_file">Making PDF..</string>
+    <string name="please_wait">Please Wait..</string>
+
+</resources>

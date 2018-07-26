@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b53f6e</color>
+    <color name="colorPrimaryDark">#9f305b</color>
+    <color name="colorAccent">#4096ff</color>
+
+    <color name="shadow">#66000000</color>
+    <color name="colorTabs">#eeff41</color>
+    <color name="colorChatBubble">#eee</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="translucentBlack">#2d000000</color>
+    <color name="menuBackground">#c8000000</color>
+    <color name="translucentWhite">#4bffffff</color>
+    <color name="colorLock">#dc020202</color>
+    <color name="colorBackground">#dcdcdc</color>
+
+    <color name="colorTextLight">#dfdfe0</color>
+    <color name="colorTextLightDark">#cdcdd0</color>
+    <color name="colorTextDark">#333333</color>
+    <color name="colorTextEmpty">#787878</color>
+
+    <color name="colorWhiteTranslucent">#64ffffff</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGray">#555555</color>
+    <color name="colorGreen">#44b469</color>
+    <color name="colorLightBlue">#dce9f2</color>
+    <color name="colorRed">#de211e</color>
+    <color name="colorBlueGray">#455a64</color>
+
+    <color name="checkFilled">#9cb975</color>
+    <color name="checkEmpty">#eeeeee</color>
+    <color name="checkEmptyColor">#999999</color>
+
+    <color name="colorPending">@color/colorPrimary</color>
+    <color name="colorCompleted">@color/colorGreen</color>
+    <color name="colorProblem">@color/colorRed</color>
+    <color name="colorDone">#8cb450</color>
+    <color name="colorJobDone">#787878</color>
+
+    <color name="colorBlue">#2E8DEF</color>
+    <color name="colorPurple">#A700AE</color>
+    <color name="colorSkyBlue">#0A5BC4</color>
+    <color name="colorOrange">#DC572E</color>
+    <color name="colorTeal">#00A0B1</color>
+    <color name="colorDarkPurple">#643EBF</color>
+    <color name="colorRedLight">#BF1E4B</color>
+
+    ß
+</resources>

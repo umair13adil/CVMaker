@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.activities.CVCreatorActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingRight="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16">
+
+        <ImageView
+            android:id="@+id/img_indicator_header_1"
+            android:layout_width="@dimen/margin_55"
+            android:layout_height="@dimen/margin_55"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorTextDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_full_name"
+            style="@style/TextTitleStyle.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Full Name"
+            app:layout_constraintStart_toEndOf="@+id/img_indicator_header_1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_head_line"
+            style="@style/TextTitleStyle.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Headline"
+            app:layout_constraintStart_toEndOf="@+id/img_indicator_header_1"
+            app:layout_constraintTop_toBottomOf="@+id/txt_full_name" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            style="@style/TextTitleStyle.Smaller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:maxWidth="@dimen/margin_100"
+            android:text=" asdf adf asdf adf asdf asdf asdf asdf asdf  sfsdasdasdasdasdasdasdasdas das ddsfsdfsdfsdfsdfsdasd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/img_cv"
+            app:layout_constraintStart_toStartOf="@+id/txt_head_line"
+            app:layout_constraintTop_toBottomOf="@+id/txt_head_line"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_cv"
+            android:layout_width="@dimen/margin_55"
+            android:layout_height="@dimen/margin_55"
+            android:src="@drawable/placeholder_male"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="right"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_cv"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txt_email"
+                style="@style/TextTitleStyle.EvenSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_email"
+                android:text="someone@gmail.com" />
+
+            <TextView
+                android:id="@+id/txt_phone"
+                style="@style/TextTitleStyle.EvenSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4"
+                android:drawableRight="@drawable/ic_contact"
+                android:text="+92 316 516 3349" />
+
+            <TextView
+                android:id="@+id/txt_address"
+                style="@style/TextTitleStyle.EvenSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4"
+                android:drawableRight="@drawable/ic_location"
+                android:text="Islamabad, Pakistan" />
+
+            <TextView
+                android:id="@+id/txt_social"
+                style="@style/TextTitleStyle.EvenSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4"
+                android:drawableRight="@drawable/ic_twitter"
+                android:text="some1one" />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_1"
+        android:background="@color/colorAccent" />
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_content"
+    tools:context="com.blackbox.onepage.cvmaker.ui.activities.CVCreatorActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <include layout="@layout/layout_cv_complete_page"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_55"
+        android:backgroundTint="@color/colorWhite"
+        android:background="@color/colorWhite"
+        app:borderWidth="@dimen/margin_0"
+        app:fabSize="auto"
+        app:srcCompat="@drawable/ic_color_selection" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/margin_120"
+        android:layout_marginRight="@dimen/margin_16"
+        android:background="@color/colorWhite"
+        android:backgroundTint="@color/colorWhite"
+        app:borderWidth="@dimen/margin_0"
+        app:fabSize="auto"
+        app:srcCompat="@drawable/ic_preview_cv" />
+
+
+
+</android.support.design.widget.CoordinatorLayout>
