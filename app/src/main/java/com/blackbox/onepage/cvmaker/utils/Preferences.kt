@@ -2,20 +2,30 @@ package com.blackbox.onepage.cvmaker.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.SharedPreferences.Editor
-
-import java.util.HashMap
+import io.reactivex.annotations.NonNull
+import java.util.*
 
 /**
  * SharedPreferences Utilities
 
  */
-object Preference {
+class Preferences {
+
+    companion object {
+
+        @NonNull
+        private val ourInstance = Preferences()
+
+        @NonNull
+        fun getInstance(): Preferences {
+            return ourInstance
+        }
+    }
 
     /**
      * The name of SharedPreferences
      */
-    private val PREFERENCE_NAME = "sp_cwal"
+    private val PREFERENCE_NAME = "sp_jetpack"
 
     /**
      * Get the instance of SharedPreferences

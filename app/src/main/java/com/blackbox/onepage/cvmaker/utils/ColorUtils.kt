@@ -1,6 +1,9 @@
 package com.blackbox.onepage.cvmaker.utils
 
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
+import android.widget.TextView
 
 object ColorUtils {
 
@@ -24,5 +27,13 @@ object ColorUtils {
 
     private fun lightenColor(color: Int, fraction: Double): Int {
         return Math.min(color + color * fraction, 255.0).toInt()
+    }
+
+    fun setTextDrawableColor(textView: TextView, color: Int) {
+        for (drawable in textView.compoundDrawables) {
+            if (drawable != null) {
+                drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+            }
+        }
     }
 }

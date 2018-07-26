@@ -1,6 +1,7 @@
 package com.blackbox.onepage.cvmaker.ui.activities
 
 import android.Manifest
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -12,7 +13,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import com.blackbox.onepage.cvmaker.R
+import com.blackbox.onepage.cvmaker.R.id.*
+import com.blackbox.onepage.cvmaker.ui.base.BaseActivity
 import com.blackbox.onepage.cvmaker.ui.dialogs.TextInputDialog
+import com.blackbox.onepage.cvmaker.utils.ColorUtils
 import com.blackbox.onepage.cvmaker.utils.ColorUtils.darkenColor
 import com.blackbox.onepage.cvmaker.utils.ColorUtils.lighterColor
 import com.thebluealliance.spectrum.SpectrumDialog
@@ -21,13 +25,17 @@ import kotlinx.android.synthetic.main.layout_cv_header.*
 import timber.log.Timber
 
 
-class CVCreatorActivity : AppCompatActivity(), TextInputDialog.OnTextInput {
+class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
 
     val TAG: String = "CVCreatorActivity"
+
+    private lateinit var viewModel: CVViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cv_creater)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(CVViewModel::class.java)
 
         if (ContextCompat.checkSelfPermission(applicationContext, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this@CVCreatorActivity, arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 2222)
@@ -89,6 +97,15 @@ class CVCreatorActivity : AppCompatActivity(), TextInputDialog.OnTextInput {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             this.window?.statusBarColor = darkenColor(color)
         }
+
+        //CV Layout
+        divider_header.setBackgroundColor(color)
+        txt_head_line.setTextColor(color)
+        img_cv.borderColor = color
+        ColorUtils.setTextDrawableColor(txt_email, color)
+        ColorUtils.setTextDrawableColor(txt_phone, color)
+        ColorUtils.setTextDrawableColor(txt_address, color)
+        ColorUtils.setTextDrawableColor(txt_social, color)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -97,4 +114,6 @@ class CVCreatorActivity : AppCompatActivity(), TextInputDialog.OnTextInput {
             //resume tasks needing this permission
         }
     }
+
+
 }

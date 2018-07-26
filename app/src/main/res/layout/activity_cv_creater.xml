@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <include layout="@layout/layout_cv_complete_page"/>
+    <include layout="@layout/layout_cv_complete_page" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

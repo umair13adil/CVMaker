@@ -66,8 +66,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_cv"
-            android:layout_width="@dimen/margin_55"
-            android:layout_height="@dimen/margin_55"
+            android:layout_width="@dimen/margin_120"
+            android:layout_height="@dimen/margin_120"
             android:src="@drawable/placeholder_male"
             app:civ_border_color="@color/colorPrimaryDark"
             app:civ_border_width="2dp"
@@ -81,9 +81,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
             android:gravity="right"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +92,7 @@
 
             <TextView
                 android:id="@+id/txt_email"
-                style="@style/TextTitleStyle.EvenSmaller"
+                style="@style/TextTitleStyle.Smaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_email"
@@ -102,7 +101,7 @@
 
             <TextView
                 android:id="@+id/txt_phone"
-                style="@style/TextTitleStyle.EvenSmaller"
+                style="@style/TextTitleStyle.Smaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
@@ -112,7 +111,7 @@
 
             <TextView
                 android:id="@+id/txt_address"
-                style="@style/TextTitleStyle.EvenSmaller"
+                style="@style/TextTitleStyle.Smaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
@@ -122,7 +121,7 @@
 
             <TextView
                 android:id="@+id/txt_social"
-                style="@style/TextTitleStyle.EvenSmaller"
+                style="@style/TextTitleStyle.Smaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
