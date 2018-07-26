@@ -2,6 +2,9 @@
     <string name="app_name">CV Maker App</string>
     <string name="title_activity_resume_creater">ResumeCreaterActivity</string>
 
+    <!--General-->
+    <string name="txt_submit">Submit</string>
+
     <string name="hint_name">Your Name</string>
     <string name="hint_title">Your Title</string>
     <string name="hint_summary">Your Summary</string>

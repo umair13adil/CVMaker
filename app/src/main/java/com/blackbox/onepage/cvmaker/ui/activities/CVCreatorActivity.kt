@@ -6,16 +6,22 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.TextView
 import com.blackbox.onepage.cvmaker.R
+import com.blackbox.onepage.cvmaker.ui.dialogs.TextInputDialog
 import com.blackbox.onepage.cvmaker.utils.ColorUtils.darkenColor
 import com.blackbox.onepage.cvmaker.utils.ColorUtils.lighterColor
 import com.thebluealliance.spectrum.SpectrumDialog
 import kotlinx.android.synthetic.main.activity_cv_creater.*
+import kotlinx.android.synthetic.main.layout_cv_header.*
+import timber.log.Timber
 
 
-class CVCreatorActivity : AppCompatActivity() {
+class CVCreatorActivity : AppCompatActivity(), TextInputDialog.OnTextInput {
 
     val TAG: String = "CVCreatorActivity"
 
@@ -40,10 +46,29 @@ class CVCreatorActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        img_cv.setOnLongClickListener {
+            Timber.i("Long Pressed")
+            it.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSelection))
+            false
+        }
     }
 
+    override fun onInput(text: String, view: View) {
+        (view as TextView).text = text
+    }
 
-    fun pickColor() {
+    fun showTextInputDialog(view: View) {
+
+        val dialog: DialogFragment = TextInputDialog().also {
+            val text = (view as TextView).text.toString()
+            it.setCallback(this, text, view)
+        }
+
+        dialog.show(supportFragmentManager, "dialogInput")
+    }
+
+    private fun pickColor() {
         SpectrumDialog.Builder(this)
                 .setColors(R.array.demo_colors)
                 .setSelectedColorRes(R.color.md_blue_100)

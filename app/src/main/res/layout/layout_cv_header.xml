@@ -32,6 +32,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:text="Full Name"
+            android:onClick="showTextInputDialog"
             app:layout_constraintStart_toEndOf="@+id/img_indicator_header_1"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,6 +45,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:text="Headline"
+            android:onClick="showTextInputDialog"
             app:layout_constraintStart_toEndOf="@+id/img_indicator_header_1"
             app:layout_constraintTop_toBottomOf="@+id/txt_full_name" />
 
@@ -55,6 +57,7 @@
             android:layout_marginTop="16dp"
             android:maxWidth="@dimen/margin_100"
             android:text=" asdf adf asdf adf asdf asdf asdf asdf asdf  sfsdasdasdasdasdasdasdasdas das ddsfsdfsdfsdfsdfsdasd"
+            android:onClick="showTextInputDialog"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/img_cv"
             app:layout_constraintStart_toStartOf="@+id/txt_head_line"
@@ -66,7 +69,7 @@
             android:layout_width="@dimen/margin_55"
             android:layout_height="@dimen/margin_55"
             android:src="@drawable/placeholder_male"
-            app:civ_border_color="@color/colorAccent"
+            app:civ_border_color="@color/colorPrimaryDark"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -94,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_email"
+                android:onClick="showTextInputDialog"
                 android:text="someone@gmail.com" />
 
             <TextView
@@ -103,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
                 android:drawableRight="@drawable/ic_contact"
+                android:onClick="showTextInputDialog"
                 android:text="+92 316 516 3349" />
 
             <TextView
@@ -112,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
                 android:drawableRight="@drawable/ic_location"
+                android:onClick="showTextInputDialog"
                 android:text="Islamabad, Pakistan" />
 
             <TextView
@@ -121,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
                 android:drawableRight="@drawable/ic_twitter"
+                android:onClick="showTextInputDialog"
                 android:text="some1one" />
 
         </LinearLayout>
@@ -131,5 +138,5 @@
         android:id="@+id/divider_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_1"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorPrimaryDark" />
 </LinearLayout>
