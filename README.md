@@ -1,7 +1,7 @@
 # CvMakerApp
 A Simple Android Kotlin CV Maker App.
 
-![Alt text](/ic_launcher.png?raw=true "CV Maker")
+![Alt text](/pictures/ic_launcher.png?raw=true "CV Maker")
 
 This is an ongoing project built for demo purpose to showcase Kotlin for Android.
 
