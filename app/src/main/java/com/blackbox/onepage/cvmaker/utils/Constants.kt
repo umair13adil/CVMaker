@@ -6,6 +6,11 @@ package com.blackbox.onepage.cvmaker.utils
 
 object Constants {
 
+    //App Authority
+    val APP_AUTHORITY = "com.blackbox.onepage.cvmaker.fileprovider"
+    val APP_PREFERENCE_NAME = "sp_cv_maker"
+    val APP_DATABASE_NAME = "CVMakerDB"
+
     //Font Types
     val FONT_ROBOTO_BLACK = 0
     val FONT_ROBOTO_BLACK_ITALIC = 1

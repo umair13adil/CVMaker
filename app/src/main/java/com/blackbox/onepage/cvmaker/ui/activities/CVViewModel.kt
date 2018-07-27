@@ -16,6 +16,7 @@ import com.blackbox.onepage.cvmaker.utils.Preferences
 import com.otaliastudios.printer.DocumentView
 import com.otaliastudios.printer.PdfPrinter
 import com.otaliastudios.printer.PrintCallback
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import io.realm.Realm
 import timber.log.Timber
@@ -27,8 +28,20 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
     var cvData = CVData()
 
     fun saveThemeColor(color: Int) {
-        cvData.themeColor = color
-        saveCVData(cvData)
+
+        Realm.getDefaultInstance().executeTransaction {
+            cvData.themeColor = color
+        }
+        cvRepository.saveData(cvData)
+    }
+
+
+    fun saveImagePath(path: String) {
+
+        Realm.getDefaultInstance().executeTransaction {
+            cvData.cvImage = path
+        }
+        cvRepository.saveData(cvData)
     }
 
     fun dataForId(text: String, id: Int) {
@@ -45,9 +58,9 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
                 R.id.txt_phone -> cvData.phone = text
                 R.id.txt_social -> cvData.social = text
             }
-
-            it.copyToRealmOrUpdate(cvData)
         }
+
+        cvRepository.saveData(cvData)
     }
 
     fun setDataForId(activity: BaseActivity) {
@@ -60,10 +73,10 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
         getTextView(activity, R.id.txt_address)?.text = cvData.address
         getTextView(activity, R.id.txt_phone)?.text = cvData.phone
         getTextView(activity, R.id.txt_social)?.text = cvData.social
-    }
 
-    private fun saveCVData(data: CVData) {
-        cvRepository.saveData(data)
+        if (cvData.cvImage != null) {
+            Picasso.with(activity).load(File(cvData.cvImage)).into((getView(activity, R.id.img_cv) as CircleImageView?))
+        }
     }
 
     fun getCVData(): CVData {
@@ -105,9 +118,13 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
         if (id == 0) {
             id = 1
             Preferences.getInstance().save(app.applicationContext, Constants.PREF_CV_ID, id)
-        }
 
-        cvData.id = id
+            Realm.getDefaultInstance().executeTransaction {
+                cvData.id = id
+            }
+
+            cvRepository.saveData(cvData)
+        }
     }
 
     fun createPDF(layout: DocumentView) {

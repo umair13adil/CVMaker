@@ -25,7 +25,7 @@ class Preferences {
     /**
      * The name of SharedPreferences
      */
-    private val PREFERENCE_NAME = "sp_cv_maker"
+    private val PREFERENCE_NAME = Constants.APP_PREFERENCE_NAME
 
     /**
      * Get the instance of SharedPreferences

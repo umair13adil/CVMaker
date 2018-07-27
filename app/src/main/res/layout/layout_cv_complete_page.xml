@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical|horizontal"
     app:columnsPerPage="1"
-    app:pageBackground="@android:color/white"
-    app:pageDividerWidth="0.3in"
-    app:pageElevation="0.03in"
+    app:pageBackground="@color/white"
+    app:pageDividerWidth="1dp"
+    app:pageElevation="4dp"
     app:pagerType="vertical"
     app:printSize="ISO_A6">
 

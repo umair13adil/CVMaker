@@ -1,7 +1,10 @@
 package com.blackbox.onepage.cvmaker.ui.activities
 
 import android.Manifest
+import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -12,11 +15,17 @@ import android.widget.TextView
 import com.blackbox.onepage.cvmaker.R
 import com.blackbox.onepage.cvmaker.ui.base.BaseActivity
 import com.blackbox.onepage.cvmaker.ui.dialogs.TextInputDialog
+import com.blackbox.onepage.cvmaker.utils.Constants
+import com.squareup.picasso.Picasso
 import com.thebluealliance.spectrum.SpectrumDialog
+import com.zhihu.matisse.Matisse
+import com.zhihu.matisse.MimeType
+import com.zhihu.matisse.engine.impl.PicassoEngine
+import com.zhihu.matisse.internal.entity.CaptureStrategy
 import kotlinx.android.synthetic.main.activity_cv_creater.*
 import kotlinx.android.synthetic.main.layout_cv_complete_page.*
 import kotlinx.android.synthetic.main.layout_cv_header.*
-import timber.log.Timber
+import java.io.File
 
 
 class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
@@ -24,6 +33,7 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
     val TAG: String = "CVCreatorActivity"
 
     private lateinit var viewModel: CVViewModel
+    private val REQUEST_CODE_CHOOSE = 1232
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,17 +58,28 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
         }
 
 
-        img_cv.setOnLongClickListener {
-            Timber.i("Long Pressed")
-            it.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSelection))
-            false
-        }
+        img_cv.setOnClickListener {
 
-        //Set CV Id
-        viewModel.setCVId()
+            Matisse.from(this)
+                    .choose(MimeType.of(MimeType.JPEG))
+                    .countable(true)
+                    .maxSelectable(9)
+                    .gridExpectedSize(resources.getDimensionPixelSize(R.dimen.grid_expected_size))
+                    .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+                    .thumbnailScale(0.85f)
+                    .imageEngine(PicassoEngine())
+                    .maxSelectable(1)
+                    .countable(true)
+                    .capture(true)
+                    .captureStrategy(CaptureStrategy(true, Constants.APP_AUTHORITY))
+                    .forResult(REQUEST_CODE_CHOOSE)
+        }
 
         //Get Saved CV if any
         viewModel.getCVData()
+
+        //Set CV Id
+        viewModel.setCVId()
 
         //Get saved color if any
         if (viewModel.cvData.themeColor != null)
@@ -105,5 +126,14 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE_CHOOSE && resultCode == Activity.RESULT_OK) {
+            val path = Matisse.obtainPathResult(data).first()
+            Picasso.with(this@CVCreatorActivity).load(File(path)).into(img_cv)
+            viewModel.saveImagePath(path)
+        }
+    }
 
 }

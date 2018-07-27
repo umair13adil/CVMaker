@@ -100,5 +100,5 @@ dependencies {
     implementation 'com.github.zurche:plain-pie:v0.2.2'
     implementation 'org.seniorzhai.scoreboard:scoreboard:1.0.1'
     implementation 'me.zhanghai.android.materialratingbar:library:1.0.2'
-    implementation 'com.zhihu.android:matisse:0.4.3'
+    implementation 'com.zhihu.android:matisse:0.5.1'
 }

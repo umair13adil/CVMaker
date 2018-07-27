@@ -13,13 +13,7 @@ class CVRepository @Inject constructor(private var db: RealmHelper) : CVDataSour
     }
 
     override fun getData(id: Int): CVData {
-        val list = db.findAll(CVData().javaClass)
-
-        return if (list.isNotEmpty())
-            list.first()
-        else
-            CVData()
+        return db.find(id)
     }
-
 
 }

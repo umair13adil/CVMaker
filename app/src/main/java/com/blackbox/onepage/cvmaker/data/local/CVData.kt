@@ -11,7 +11,8 @@ open class CVData(@PrimaryKey var id: Int? = null,
                   var address: String? = "[Enter Address Here]",
                   var phone: String? = "[Enter Phone Here]",
                   var social: String? = "[Enter Twitter Here]",
-                  var themeColor: Int? = null
+                  var themeColor: Int? = null,
+                  var cvImage: String? = ""
 ) : RealmObject() {
 
     public fun CVData() {
