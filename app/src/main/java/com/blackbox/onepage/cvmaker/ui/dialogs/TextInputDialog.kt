@@ -40,7 +40,8 @@ class TextInputDialog : DialogFragment() {
         dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         isCancelable = true
 
-        view.editText.setText(textDisplay)
+        if (!textDisplay?.startsWith("[")!!)
+            view.editText.setText(textDisplay)
 
         view.editText.requestFocus()
         dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)

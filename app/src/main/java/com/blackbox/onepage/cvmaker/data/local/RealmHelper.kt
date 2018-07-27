@@ -40,5 +40,4 @@ class RealmHelper {
     fun <T : RealmObject> findAll(clazz: Class<T>): List<T> {
         return getRealmInstance().where(clazz).findAll()
     }
-
 }

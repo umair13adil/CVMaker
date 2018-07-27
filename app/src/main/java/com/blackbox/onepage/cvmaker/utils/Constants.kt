@@ -26,4 +26,7 @@ object Constants {
     val FONT_ROBOTO_CONDENSED_LIGHT_ITALIC = 16
     val FONT_ROBOTO_CONDENSED_REGULAR = 17
 
+
+    //SharedPreferences
+    val PREF_CV_ID = "sp_cv_id"
 }

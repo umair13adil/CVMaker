@@ -90,10 +90,7 @@ dependencies {
     //Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    //PDF Maker
-    implementation 'com.github.HendrixString:Android-PdfMyXml:1.0.8'
-
-    //View Zoom
+    //Document Viewer & Printer
     implementation 'com.otaliastudios:viewprinter:0.3.0'
 
     //Others

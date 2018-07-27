@@ -2,25 +2,19 @@ package com.blackbox.onepage.cvmaker.ui.activities
 
 import android.Manifest
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import com.blackbox.onepage.cvmaker.R
-import com.blackbox.onepage.cvmaker.R.id.*
 import com.blackbox.onepage.cvmaker.ui.base.BaseActivity
 import com.blackbox.onepage.cvmaker.ui.dialogs.TextInputDialog
-import com.blackbox.onepage.cvmaker.utils.ColorUtils
-import com.blackbox.onepage.cvmaker.utils.ColorUtils.darkenColor
-import com.blackbox.onepage.cvmaker.utils.ColorUtils.lighterColor
 import com.thebluealliance.spectrum.SpectrumDialog
 import kotlinx.android.synthetic.main.activity_cv_creater.*
+import kotlinx.android.synthetic.main.layout_cv_complete_page.*
 import kotlinx.android.synthetic.main.layout_cv_header.*
 import timber.log.Timber
 
@@ -50,8 +44,7 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
         }
 
         fab_view.setOnClickListener {
-            val intent = Intent(this, CVViewerActivity::class.java)
-            startActivity(intent)
+            viewModel.createPDF(layout_cv)
         }
 
 
@@ -60,10 +53,24 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
             it.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSelection))
             false
         }
+
+        //Set CV Id
+        viewModel.setCVId()
+
+        //Get Saved CV if any
+        viewModel.getCVData()
+
+        //Get saved color if any
+        if (viewModel.cvData.themeColor != null)
+            viewModel.setThemeColor(this, viewModel.cvData.themeColor!!)
+
+        //Set saved data to UI
+        viewModel.setDataForId(this)
     }
 
     override fun onInput(text: String, view: View) {
         (view as TextView).text = text
+        viewModel.dataForId(text, view.id)
     }
 
     fun showTextInputDialog(view: View) {
@@ -84,29 +91,12 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
                 .setOutlineWidth(2)
                 .setOnColorSelectedListener { positiveResult, color ->
                     if (positiveResult) {
-                        setThemeColor(color)
+                        viewModel.setThemeColor(this, color)
+                        viewModel.saveThemeColor(color)
                     }
                 }.build().show(supportFragmentManager, "dialog")
     }
 
-
-    private fun setThemeColor(color: Int) {
-        main_content?.setBackgroundColor(lighterColor(color))
-        toolbar?.setBackgroundColor(color)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            this.window?.statusBarColor = darkenColor(color)
-        }
-
-        //CV Layout
-        divider_header.setBackgroundColor(color)
-        txt_head_line.setTextColor(color)
-        img_cv.borderColor = color
-        ColorUtils.setTextDrawableColor(txt_email, color)
-        ColorUtils.setTextDrawableColor(txt_phone, color)
-        ColorUtils.setTextDrawableColor(txt_address, color)
-        ColorUtils.setTextDrawableColor(txt_social, color)
-    }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
