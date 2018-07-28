@@ -141,7 +141,7 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
         }
 
         val mPrinter = PdfPrinter(layout, callback)
-        mPrinter.setPrintPageBackground(true);
+        mPrinter.setPrintPageBackground(true)
         mPrinter.print(cvData.fullName, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), cvData.fullName + ".pdf")
     }
 }

@@ -16,7 +16,8 @@
     <string name="section_contact">Contact Information</string>
     <string name="section_basic">Basic Information</string>
     <string name="section_education">Education</string>
-    <string name="section_experience">Experience</string>
+    <string name="heading_experience">Work Experience</string>
+    <string name="heading_accomplishments">Accomplishments</string>
     <string name="section_skills">Skills</string>
     <string name="section_interests">Interests</string>
 

@@ -35,12 +35,12 @@
         <item name="android:textColor">@color/colorTextDark</item>
         <item name="android:textSize">@dimen/txt_size_24</item>
         <item name="android:gravity">start</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="TextTitleStyle.Larger">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/txt_size_28</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">@dimen/txt_size_24</item>
         <item name="android:gravity">start</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -78,6 +78,13 @@
         <item name="android:textStyle">normal|italic</item>
     </style>
 
+    <style name="TextTitleStyle.Small.Focused">
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">@dimen/txt_size_18</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="TextTitleStyle.Smaller">
         <item name="android:textColor">@color/colorTextDark</item>
         <item name="android:textSize">@dimen/txt_size_14</item>
@@ -94,12 +101,28 @@
         <item name="android:drawablePadding">@dimen/margin_8</item>
     </style>
 
+    <style name="TextTitleStyle.Smaller.Colored">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/txt_size_12</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textStyle">normal|italic</item>
+    </style>
+
     <style name="full_screen_dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="scrollbarStyleVertical">
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_bar_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_bar_track</item>
+        <item name="android:scrollbarSize">6dp</item>
     </style>
 
 </resources>

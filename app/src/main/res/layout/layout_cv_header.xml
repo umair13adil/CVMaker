@@ -19,9 +19,11 @@
 
             <ImageView
                 android:id="@+id/img_indicator_header_1"
-                android:layout_width="@dimen/margin_55"
+                android:layout_width="@dimen/margin_35"
                 android:layout_height="@dimen/margin_55"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_8"
                 android:background="@color/colorTextDark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,9 +38,9 @@
                     style="@style/TextTitleStyle.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_16"
                     android:onClick="showTextInputDialog"
                     android:text="Full Name" />
 
@@ -47,9 +49,8 @@
                     style="@style/TextTitleStyle.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:onClick="showTextInputDialog"
                     android:text="Headline" />
 
@@ -58,13 +59,12 @@
                     style="@style/TextTitleStyle.Smaller"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:maxWidth="@dimen/margin_180"
                     android:onClick="showTextInputDialog"
                     android:paddingRight="@dimen/margin_5"
-                    android:text=" asdf adf asdf adf asdf asdf asdf asdf cxzczxczxcxz xcxzczxczxczxczxczxczxczxczxczxczxczxcxzczxczxcxzczxasdf  sfsdasdasdasdasdasdasdasdas das ddsfsdfsdsasasasasasasasasasasasasasasasasafsdfsdfsdasd" />
+                    android:text="About Me" />
 
             </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:layout_gravity="center"
             android:src="@drawable/placeholder_male"
             app:civ_border_color="@color/colorPrimaryDark"
-            app:civ_border_width="2dp" />
+            app:civ_border_width="@dimen/margin_2" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -86,8 +86,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|end|center_vertical"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_4"
             android:gravity="right"
             android:orientation="vertical">
 

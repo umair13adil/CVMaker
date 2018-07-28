@@ -5,11 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical|horizontal"
+    android:filterTouchesWhenObscured="true"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     app:columnsPerPage="1"
     app:pageBackground="@color/white"
-    app:pageDividerWidth="1dp"
-    app:pageElevation="4dp"
+    app:pageDividerWidth="@dimen/margin_1"
+    app:pageElevation="@dimen/margin_4"
     app:pagerType="vertical"
+    app:pageInset="@dimen/margin_8"
     app:printSize="ISO_A6">
 
     <LinearLayout
@@ -20,7 +24,9 @@
         <include
             layout="@layout/layout_cv_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/layout_cv_body"/>
 
     </LinearLayout>
 
