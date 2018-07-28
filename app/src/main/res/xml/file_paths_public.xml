@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
     <external-path name="Images" path="Pictures" />
+    <external-path name="Documents" path="Documents" />
 </paths>

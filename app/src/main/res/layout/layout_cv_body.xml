@@ -24,6 +24,10 @@
 
         <include layout="@layout/layout_work_experience" />
 
+        <include layout="@layout/layout_work_experience" />
+
+        <include layout="@layout/layout_work_experience" />
+
     </LinearLayout>
 
     <LinearLayout

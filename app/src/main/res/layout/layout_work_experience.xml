@@ -31,7 +31,7 @@
 
                 <TextView
                     android:id="@+id/txt_designation"
-                    style="@style/TextTitleStyle.Larger"
+                    style="@style/TextTitleStyle.Large.Focused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_8"

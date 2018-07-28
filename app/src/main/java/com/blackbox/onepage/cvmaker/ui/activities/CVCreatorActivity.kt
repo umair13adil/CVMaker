@@ -3,6 +3,7 @@ package com.blackbox.onepage.cvmaker.ui.activities
 import android.Manifest
 import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
@@ -10,6 +11,7 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.FileProvider
 import android.view.View
 import android.widget.TextView
 import com.blackbox.onepage.cvmaker.R
@@ -22,6 +24,8 @@ import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.PicassoEngine
 import com.zhihu.matisse.internal.entity.CaptureStrategy
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_cv_creater.*
 import kotlinx.android.synthetic.main.layout_cv_complete_page.*
 import kotlinx.android.synthetic.main.layout_cv_header.*
@@ -54,7 +58,24 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
         }
 
         fab_view.setOnClickListener {
-            viewModel.createPDF(layout_cv)
+
+            showLoading(progress_bar, layout_cv)
+
+            viewModel.createPDF("my_cv", layout_cv)
+                    .subscribeOn(AndroidSchedulers.mainThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(  // named arguments for lambda Subscribers
+                            onSuccess = {
+                                showToast(getString(R.string.txt_cv_created))
+                                hideLoading(progress_bar, layout_cv)
+                                showPDF(it)
+                            },
+                            onError = {
+                                showToast(getString(R.string.txt_cv_create_fail))
+                                it.printStackTrace()
+                                hideLoading(progress_bar, layout_cv)
+                            }
+                    )
         }
 
 
@@ -136,4 +157,17 @@ class CVCreatorActivity : BaseActivity(), TextInputDialog.OnTextInput {
         }
     }
 
+    private fun showPDF(file: File) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW)
+            val uri = FileProvider.getUriForFile(this, Constants.APP_AUTHORITY, file)
+            intent.setDataAndType(uri, "application/pdf")
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            e.printStackTrace()
+            showToast(getString(R.string.txt_no_pdf_app))
+        }
+    }
 }

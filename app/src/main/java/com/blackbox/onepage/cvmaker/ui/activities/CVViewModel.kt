@@ -18,8 +18,8 @@ import com.otaliastudios.printer.PdfPrinter
 import com.otaliastudios.printer.PrintCallback
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
+import io.reactivex.Single
 import io.realm.Realm
-import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
@@ -127,21 +127,25 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
         }
     }
 
-    fun createPDF(layout: DocumentView) {
+    fun createPDF(fileName: String, layout: DocumentView): Single<File> {
 
-        val callback = object : PrintCallback {
-            override fun onPrintFailed(id: String?, error: Throwable?) {
-                error?.printStackTrace()
+        return Single.create<File> {
+
+            val callback = object : PrintCallback {
+                override fun onPrintFailed(id: String?, error: Throwable?) {
+                    error?.printStackTrace()
+                    it.onError(error!!)
+                }
+
+                override fun onPrint(id: String?, file: File?) {
+                    it.onSuccess(file!!)
+                }
+
             }
 
-            override fun onPrint(id: String?, file: File?) {
-                Timber.i("Printed: $id")
-            }
-
+            val mPrinter = PdfPrinter(layout, callback)
+            mPrinter.setPrintPageBackground(true)
+            mPrinter.print(fileName, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "$fileName.pdf")
         }
-
-        val mPrinter = PdfPrinter(layout, callback)
-        mPrinter.setPrintPageBackground(true)
-        mPrinter.print(cvData.fullName, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), cvData.fullName + ".pdf")
     }
 }
