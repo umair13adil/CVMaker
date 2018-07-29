@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/margin_6"
+    android:layout_marginBottom="@dimen/margin_6">
+
+    <TextView
+        android:id="@+id/txt_line1"
+        style="@style/TextTitleStyle.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:onClick="showTextInputDialog"
+        android:text="This is main text..."
+        android:textColor="@color/colorTextDark"
+        android:textStyle="normal" />
+
+    <com.otaliastudios.printer.AutoSplitTextView
+        android:id="@+id/txt_line2"
+        style="@style/TextTitleStyle.Smaller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:maxWidth="@dimen/margin_180"
+        android:onClick="showTextInputDialog"
+        android:paddingRight="@dimen/margin_5"
+        android:text="This is sub text.."
+        android:textColor="@color/colorTextLightDark"
+        android:textStyle="italic" />
+
+</LinearLayout>

@@ -4,6 +4,7 @@
 
     <!--General-->
     <string name="txt_submit">Submit</string>
+    <string name="txt_add_new">Add New</string>
 
     <!--CV Sections-->
     <string name="heading_education">Education</string>

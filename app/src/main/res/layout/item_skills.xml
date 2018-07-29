@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TextTitleStyle.Smaller"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/chip_background"
+    android:textColor="@color/colorWhite"
+    android:paddingLeft="@dimen/margin_8"
+    android:paddingRight="@dimen/margin_8"
+    android:paddingTop="@dimen/margin_4"
+    android:paddingBottom="@dimen/margin_4"
+    android:text="My Skill"
+    android:layout_marginLeft="@dimen/margin_8"
+    android:layout_marginTop="@dimen/margin_8"/>

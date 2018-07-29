@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -63,13 +63,11 @@
     </style>
 
     <style name="TextTitleStyle.Medium">
-        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/txt_size_20</item>
         <item name="android:gravity">start</item>
-        <item name="android:paddingLeft">@dimen/margin_10</item>
-        <item name="android:paddingRight">@dimen/margin_10</item>
-        <item name="android:paddingTop">@dimen/margin_2</item>
-        <item name="android:paddingBottom">@dimen/margin_2</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">@dimen/margin_10</item>
     </style>
 
     <style name="TextTitleStyle.Medium.Heading">
@@ -131,6 +129,21 @@
         <item name="android:scrollbarThumbVertical">@drawable/scroll_bar_thumb</item>
         <item name="android:scrollbarTrackVertical">@drawable/scroll_bar_track</item>
         <item name="android:scrollbarSize">6dp</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:padding">@dimen/margin_2</item>
+        <item name="android:textSize">@dimen/txt_size_16</item>
+        <item name="android:drawableLeft">@drawable/ic_add</item>
+        <item name="android:minWidth">@dimen/margin_150</item>
+        <item name="android:textStyle">bold</item>
+        <item name="app:elevation" tools:targetApi="lollipop">@dimen/margin_8</item>
+        <item name="stateListAnimator">@null</item>
+        <item name="app:translationZ" tools:targetApi="lollipop">@dimen/margin_8</item>
+        <item name="android:layout_margin">@dimen/margin_4</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/btn_background</item>
     </style>
 
 </resources>

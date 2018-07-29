@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_marginBottom="@dimen/margin_4"
     tools:context=".ui.activities.CVCreatorActivity">
 
     <RelativeLayout
@@ -30,7 +31,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_designation"
+                    android:id="@+id/txt_degree"
                     style="@style/TextTitleStyle.Large.Focused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
                     android:text="Founder, CEO and Lead Designer" />
 
                 <TextView
-                    android:id="@+id/txt_organization"
+                    android:id="@+id/txt_institute"
                     style="@style/TextTitleStyle.Small.Focused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -92,9 +93,22 @@
                     android:text="@string/heading_accomplishments" />
 
 
-                <include layout="@layout/item_work_experince"/>
-                <include layout="@layout/item_work_experince"/>
-                <include layout="@layout/item_work_experince"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_education_points"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="2"
+                    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_bullet_points"
+                    tools:orientation="vertical"
+                    tools:scrollbars="none"/>
+
+                <Button
+                    android:id="@+id/btn_add_education_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonStyle"
+                    android:text="@string/txt_add_new"/>
 
             </LinearLayout>
 

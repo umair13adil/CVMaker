@@ -18,15 +18,26 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_50"
             android:layout_marginLeft="@dimen/margin_50"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
             android:text="@string/heading_experience"
             android:textAllCaps="true" />
 
-        <include layout="@layout/layout_work_experience" />
+        <include layout="@layout/layout_experience"/>
 
-        <include layout="@layout/layout_work_experience" />
+        <TextView
+            android:id="@+id/heading_education"
+            style="@style/TextTitleStyle.Larger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_50"
+            android:layout_marginLeft="@dimen/margin_50"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:text="@string/heading_education"
+            android:textAllCaps="true" />
 
-        <include layout="@layout/layout_work_experience" />
+        <include layout="@layout/layout_education"/>
 
     </LinearLayout>
 
@@ -35,6 +46,42 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/heading_skills"
+            style="@style/TextTitleStyle.Larger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:text="@string/heading_skills"
+            android:textAllCaps="true" />
+
+        <include layout="@layout/layout_skills"/>
+
+        <TextView
+            android:id="@+id/heading_accomplishments"
+            style="@style/TextTitleStyle.Larger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:text="@string/heading_accomplishments"
+            android:textAllCaps="true" />
+
+        <include layout="@layout/layout_achievements"/>
+
+        <TextView
+            android:id="@+id/heading_interests"
+            style="@style/TextTitleStyle.Larger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:text="@string/heading_interests"
+            android:textAllCaps="true" />
+
+        <include layout="@layout/layout_interests"/>
 
     </LinearLayout>>
 
