@@ -1,9 +1,14 @@
 package com.blackbox.onepage.cvmaker.ui.activities
 
+import android.annotation.SuppressLint
 import android.arch.lifecycle.ViewModel
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Build
 import android.os.Environment
+import android.support.v4.content.ContextCompat
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import com.blackbox.onepage.cvmaker.MainApplication
 import com.blackbox.onepage.cvmaker.R
@@ -13,6 +18,7 @@ import com.blackbox.onepage.cvmaker.ui.base.BaseActivity
 import com.blackbox.onepage.cvmaker.utils.ColorUtils
 import com.blackbox.onepage.cvmaker.utils.Constants
 import com.blackbox.onepage.cvmaker.utils.Preferences
+import com.blackbox.onepage.cvmaker.utils.Utils
 import com.otaliastudios.printer.DocumentView
 import com.otaliastudios.printer.PdfPrinter
 import com.otaliastudios.printer.PrintCallback
@@ -23,14 +29,18 @@ import io.realm.Realm
 import java.io.File
 import javax.inject.Inject
 
+
 class CVViewModel @Inject constructor(private var cvRepository: CVRepository, private var app: MainApplication) : ViewModel() {
 
     var cvData = CVData()
+
+    private var selectedColor = R.color.colorPrimaryDark
 
     fun saveThemeColor(color: Int) {
 
         Realm.getDefaultInstance().executeTransaction {
             cvData.themeColor = color
+            selectedColor = color
         }
         cvRepository.saveData(cvData)
     }
@@ -75,16 +85,21 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
         getTextView(activity, R.id.txt_social)?.text = cvData.social
 
         if (cvData.cvImage != null) {
-            Picasso.with(activity).load(File(cvData.cvImage)).into((getView(activity, R.id.img_cv) as CircleImageView?))
+            Picasso.with(activity)
+                    .load(File(cvData.cvImage))
+                    .placeholder(R.drawable.placeholder_male)
+                    .into((getView(activity, R.id.img_cv) as CircleImageView?))
         }
     }
 
     fun getCVData(): CVData {
-        cvData = cvRepository.getData(1)
+        cvData = cvRepository.getData(1)!!
         return cvData
     }
 
     fun setThemeColor(activity: BaseActivity, color: Int) {
+        selectedColor = color
+
         getView(activity, R.id.main_content)?.setBackgroundColor(ColorUtils.lighterColor(color))
         getView(activity, R.id.toolbar)?.setBackgroundColor(color)
 
@@ -146,6 +161,43 @@ class CVViewModel @Inject constructor(private var cvRepository: CVRepository, pr
             val mPrinter = PdfPrinter(layout, callback)
             mPrinter.setPrintPageBackground(true)
             mPrinter.print(fileName, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "$fileName.pdf")
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun showHideEditingOptions(rootView: ViewGroup, show: Boolean) {
+
+        val context = app.applicationContext
+        val buttonTag = context.getString(R.string.tag_edit_button)
+        val textTag = context.getString(R.string.tag_edit_textview)
+        val borderTag = context.getString(R.string.tag_border_layout)
+
+        val buttonList = Utils.getInstance().getViewsByTag(rootView, buttonTag)
+        val textList = Utils.getInstance().getViewsByTag(rootView, textTag)
+        val borderList = Utils.getInstance().getViewsByTag(rootView, borderTag)
+
+        val addDrawable = ContextCompat.getDrawable(context, R.drawable.ic_add)
+        addDrawable?.colorFilter = PorterDuffColorFilter(selectedColor, PorterDuff.Mode.SRC_IN)
+
+        for (button in buttonList) {
+            if (!show)
+                button.visibility = View.GONE
+            else
+                button.visibility = View.VISIBLE
+        }
+
+        for (text in textList) {
+            if (!show)
+                (text as TextView).setCompoundDrawables(null, null, null, null)
+            else
+                (text as TextView).setCompoundDrawables(addDrawable, null, null, null)
+        }
+
+        for (border in borderList) {
+            if (!show)
+                border.setBackgroundResource(0)
+            else
+                border.setBackgroundResource(R.drawable.border_background)
         }
     }
 }

@@ -6,6 +6,6 @@ interface CVDataSource {
 
     fun saveData(data: CVData)
 
-    fun getData(id: Int): CVData
+    fun getData(id: Int): CVData?
 
 }

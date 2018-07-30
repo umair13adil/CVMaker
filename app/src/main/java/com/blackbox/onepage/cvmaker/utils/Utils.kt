@@ -1,10 +1,16 @@
 package com.blackbox.onepage.cvmaker.utils
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
+import android.support.v4.content.FileProvider
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import io.reactivex.annotations.NonNull
+import java.io.File
 
 /**
  * Created by umair on 31/05/2017.
@@ -63,6 +69,37 @@ class Utils {
             }
         } catch (e: NullPointerException) {
 
+        }
+    }
+
+    fun getViewsByTag(root: ViewGroup, tag: String?): ArrayList<View> {
+        val views = ArrayList<View>()
+        val childCount = root.childCount
+        for (i in 0 until childCount) {
+            val child = root.getChildAt(i)
+            if (child is ViewGroup) {
+                views.addAll(getViewsByTag(child, tag))
+            }
+
+            val tagObj = child.tag
+            if (tagObj != null && tagObj == tag) {
+                views.add(child)
+            }
+
+        }
+        return views
+    }
+
+    fun showPDF(file: File, activity: Activity) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW)
+            val uri = FileProvider.getUriForFile(activity, Constants.APP_AUTHORITY, file)
+            intent.setDataAndType(uri, "application/pdf")
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            activity.startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            e.printStackTrace()
         }
     }
 }

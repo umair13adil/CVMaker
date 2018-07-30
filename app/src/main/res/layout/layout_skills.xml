@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:background="@drawable/border_background"
+    android:orientation="vertical"
+    android:tag="@string/tag_border_layout">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_skills"
@@ -14,13 +16,14 @@
         tools:listitem="@layout/item_skills"
         tools:orientation="horizontal"
         tools:scrollbars="none"
-        tools:spanCount="2"/>
+        tools:spanCount="2" />
 
     <Button
         android:id="@+id/btn_add_skills"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/ButtonStyle"
-        android:text="@string/txt_add_new"/>
+        android:tag="@string/tag_edit_button"
+        android:text="@string/txt_add_new" />
 
 </LinearLayout>

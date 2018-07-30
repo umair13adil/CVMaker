@@ -9,11 +9,18 @@ import javax.inject.Singleton
 class CVRepository @Inject constructor(private var db: RealmHelper) : CVDataSource {
 
     override fun saveData(data: CVData) {
-        db.add(data)
+        db.update(data)
     }
 
-    override fun getData(id: Int): CVData {
-        return db.find(id)
+    override fun getData(id: Int): CVData? {
+        val list = db.findAll(CVData::class.java).filter {
+            it.id == id
+        }
+
+        return if (list.isNotEmpty())
+            list.first()
+        else
+            CVData()
     }
 
 }

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:tag="@string/tag_border_layout"
+    android:background="@drawable/border_background"
     tools:context=".ui.activities.CVCreatorActivity">
 
     <RelativeLayout
@@ -22,8 +24,8 @@
                 android:layout_width="@dimen/margin_35"
                 android:layout_height="@dimen/margin_55"
                 android:layout_marginTop="@dimen/margin_20"
-                android:layout_marginRight="@dimen/margin_8"
                 android:layout_marginEnd="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
                 android:background="@color/colorTextDark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +43,9 @@
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:drawableRight="@drawable/ic_round_add_button"
                     android:onClick="showTextInputDialog"
+                    android:tag="@string/tag_edit_textview"
                     android:text="Full Name" />
 
                 <TextView
@@ -51,19 +55,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginLeft="@dimen/margin_8"
+                    android:drawableRight="@drawable/ic_round_add_button"
                     android:onClick="showTextInputDialog"
+                    android:tag="@string/tag_edit_textview"
                     android:text="Headline" />
 
                 <com.otaliastudios.printer.AutoSplitTextView
                     android:id="@+id/txt_about_me"
                     style="@style/TextTitleStyle.Smaller"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginLeft="@dimen/margin_8"
+                    android:drawableRight="@drawable/ic_round_add_button"
                     android:maxWidth="@dimen/margin_180"
                     android:onClick="showTextInputDialog"
                     android:paddingRight="@dimen/margin_5"
+                    android:tag="@string/tag_edit_textview"
                     android:text="About Me" />
 
             </LinearLayout>
@@ -96,8 +104,10 @@
                 style="@style/TextTitleStyle.Smaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_round_add_button"
                 android:drawableRight="@drawable/ic_email"
                 android:onClick="showTextInputDialog"
+                android:tag="@string/tag_edit_textview"
                 android:text="someone@gmail.com" />
 
             <TextView
@@ -106,8 +116,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
+                android:drawableLeft="@drawable/ic_round_add_button"
                 android:drawableRight="@drawable/ic_contact"
                 android:onClick="showTextInputDialog"
+                android:tag="@string/tag_edit_textview"
                 android:text="+92 316 516 3349" />
 
             <TextView
@@ -116,8 +128,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
+                android:drawableLeft="@drawable/ic_round_add_button"
                 android:drawableRight="@drawable/ic_location"
                 android:onClick="showTextInputDialog"
+                android:tag="@string/tag_edit_textview"
                 android:text="Islamabad, Pakistan" />
 
             <TextView
@@ -126,8 +140,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4"
+                android:drawableLeft="@drawable/ic_round_add_button"
                 android:drawableRight="@drawable/ic_twitter"
                 android:onClick="showTextInputDialog"
+                android:tag="@string/tag_edit_textview"
                 android:text="some1one" />
 
         </LinearLayout>

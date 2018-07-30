@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">CV Maker App</string>
-    <string name="title_activity_resume_creater">ResumeCreaterActivity</string>
 
     <!--General-->
     <string name="txt_submit">Submit</string>
     <string name="txt_add_new">Add New</string>
+
+    <!--Tags-->
+    <string name="tag_edit_button">edit_button_option</string>
+    <string name="tag_edit_textview">edit_text_option</string>
+    <string name="tag_border_layout">layout_border</string>
 
     <!--CV Sections-->
     <string name="heading_education">Education</string>
@@ -18,5 +22,8 @@
     <string name="txt_cv_created">CV created &amp; saved successfully.</string>
     <string name="txt_cv_create_fail">Unable to create CV, something went wrong.</string>
     <string name="txt_no_pdf_app">No app found to show this PDF.</string>
+
+    <!--Add Skills Dialog-->
+    <string name="hint_skills">Add new skill here..</string>
 
 </resources>

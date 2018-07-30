@@ -1,6 +1,7 @@
 package com.blackbox.onepage.cvmaker.data.local
 
 import io.realm.Realm
+import io.realm.RealmObject
 
 
 class RealmHelper {
@@ -13,32 +14,30 @@ class RealmHelper {
         }
     }
 
-    fun add(model: CVData) {
+    fun <T : RealmObject> add(model: T): T {
         val realm = getRealmInstance()
         realm.executeTransaction {
             it.copyToRealmOrUpdate(model)
         }
+        return model
     }
 
-    fun update(model: CVData) {
+    fun <T : RealmObject> update(model: T): T {
         val realm = getRealmInstance()
         realm.executeTransaction {
             it.copyToRealmOrUpdate(model)
         }
+        return model
     }
 
-    fun remove(clazz: CVData) {
+    fun <T : RealmObject> remove(clazz: Class<T>) {
         val realm = getRealmInstance()
         realm.executeTransaction {
-            it.delete(clazz.javaClass)
+            it.delete(clazz)
         }
     }
 
-    fun findAll(): List<CVData> {
-        return getRealmInstance().where(CVData::class.java).findAll()
-    }
-
-    fun find(id: Int): CVData {
-        return getRealmInstance().where(CVData::class.java).equalTo("id", id).findFirst()!!
+    fun <T : RealmObject> findAll(clazz: Class<T>): List<T> {
+        return getRealmInstance().where(clazz).findAll()
     }
 }

@@ -31,7 +31,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_degree"
+                    android:id="@+id/txt_designation"
                     style="@style/TextTitleStyle.Large.Focused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                     android:text="Founder, CEO and Lead Designer" />
 
                 <TextView
-                    android:id="@+id/txt_institute"
+                    android:id="@+id/txt_organization"
                     style="@style/TextTitleStyle.Small.Focused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
 
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/list_education_points"
+                    android:id="@+id/list_experience_points"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:itemCount="2"
@@ -104,10 +104,11 @@
                     tools:scrollbars="none"/>
 
                 <Button
-                    android:id="@+id/btn_add_education_points"
+                    android:id="@+id/btn_add_experience_points"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/ButtonStyle"
+                    android:tag="@string/tag_edit_button"
                     android:text="@string/txt_add_new"/>
 
             </LinearLayout>

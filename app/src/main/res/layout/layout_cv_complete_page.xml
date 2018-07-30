@@ -14,7 +14,7 @@
     app:pageElevation="@dimen/margin_4"
     app:pagerType="vertical"
     app:pageInset="@dimen/margin_8"
-    app:printSize="ISO_A6">
+    app:printSize="ISO_A4">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         <include
             layout="@layout/layout_cv_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <include layout="@layout/layout_cv_body"/>
 
